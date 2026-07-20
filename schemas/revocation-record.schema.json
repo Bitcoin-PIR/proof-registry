@@ -1,0 +1,43 @@
+{
+  "$id": "https://github.com/Bitcoin-PIR/proof-registry/schemas/revocation-record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundleManifestSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+    "createdAt": { "format": "date-time", "type": "string" },
+    "evidenceSha256": {
+      "items": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "issuedBy": {
+      "additionalProperties": false,
+      "properties": {
+        "identity": { "minLength": 1, "type": "string" },
+        "repository": { "const": "https://github.com/Bitcoin-PIR/proof-registry" }
+      },
+      "required": ["identity", "repository"],
+      "type": "object"
+    },
+    "mediaType": {
+      "const": "application/vnd.bitcoinpir.revocation-record.v1+json"
+    },
+    "reason": { "minLength": 1, "type": "string" },
+    "reasonCode": {
+      "enum": ["compromised", "invalid", "obsolete", "superseded", "other"]
+    },
+    "schemaVersion": { "const": 1 }
+  },
+  "required": [
+    "schemaVersion",
+    "mediaType",
+    "createdAt",
+    "bundleManifestSha256",
+    "reasonCode",
+    "reason",
+    "issuedBy",
+    "evidenceSha256"
+  ],
+  "title": "Bitcoin-PIR revocation record v1",
+  "type": "object"
+}

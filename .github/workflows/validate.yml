@@ -1,0 +1,39 @@
+name: Validate registry
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Registry integrity
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Run unit tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Validate all registry content
+        run: python3 tools/validate_registry.py --root .
+
+      - name: Enforce append-only pull request history
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: python3 tools/validate_registry.py --root . --base-ref "$BASE_SHA" --comparison merge-base
+
+      - name: Enforce append-only push history
+        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
+        env:
+          BASE_SHA: ${{ github.event.before }}
+        run: python3 tools/validate_registry.py --root . --base-ref "$BASE_SHA" --comparison exact

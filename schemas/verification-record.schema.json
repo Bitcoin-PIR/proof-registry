@@ -1,0 +1,62 @@
+{
+  "$id": "https://github.com/Bitcoin-PIR/proof-registry/schemas/verification-record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundleManifestSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+    "checks": {
+      "contains": {
+        "properties": { "required": { "const": true } },
+        "required": ["required"]
+      },
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidenceSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+          "exitCode": { "minimum": 0, "type": "integer" },
+          "id": { "pattern": "^[a-z0-9][a-z0-9._/-]*$", "type": "string" },
+          "outcome": { "enum": ["pass", "fail", "error", "skipped"] },
+          "required": { "type": "boolean" }
+        },
+        "required": ["id", "required", "outcome", "exitCode"],
+        "type": "object"
+      },
+      "minItems": 1,
+      "minContains": 1,
+      "type": "array"
+    },
+    "createdAt": { "format": "date-time", "type": "string" },
+    "mediaType": {
+      "const": "application/vnd.bitcoinpir.verification-record.v1+json"
+    },
+    "overallOutcome": {
+      "description": "Historical evidence only; derived from required checks and never a trust root.",
+      "enum": ["pass", "fail"]
+    },
+    "schemaVersion": { "const": 1 },
+    "verificationProfile": { "pattern": "^[a-z0-9][a-z0-9._/-]*$", "type": "string" },
+    "verifier": {
+      "additionalProperties": false,
+      "properties": {
+        "commit": { "pattern": "^[0-9a-f]{40}$", "type": "string" },
+        "repository": { "pattern": "^https://github\\.com/Bitcoin-PIR/[A-Za-z0-9._-]+$", "type": "string" },
+        "tool": { "minLength": 1, "type": "string" },
+        "toolSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+      },
+      "required": ["repository", "commit", "tool", "toolSha256"],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "mediaType",
+    "createdAt",
+    "bundleManifestSha256",
+    "verificationProfile",
+    "verifier",
+    "checks",
+    "overallOutcome"
+  ],
+  "title": "Bitcoin-PIR verification record v1",
+  "type": "object"
+}

@@ -1,0 +1,93 @@
+{
+  "$id": "https://github.com/Bitcoin-PIR/proof-registry/schemas/bundle-manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "mediaType": { "minLength": 1, "type": "string" },
+          "path": { "pattern": "^artifacts/[A-Za-z0-9._/-]+$", "type": "string" },
+          "role": { "pattern": "^[a-z0-9][a-z0-9._-]*$", "type": "string" },
+          "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+          "size": { "minimum": 0, "type": "integer" }
+        },
+        "required": ["path", "sha256", "size", "mediaType", "role"],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "bundleId": { "pattern": "^[a-z0-9][a-z0-9._/-]*$", "type": "string" },
+    "claims": {
+      "description": "Producer assertions only. Trust/result-like keys and outcome values such as passed, verified, trusted, failed, or invalid are forbidden by the registry validator.",
+      "minProperties": 1,
+      "type": "object"
+    },
+    "createdAt": { "format": "date-time", "type": "string" },
+    "dependencies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "manifestSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+          "role": { "pattern": "^[a-z0-9][a-z0-9._-]*$", "type": "string" }
+        },
+        "required": ["role", "manifestSha256"],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "mediaType": {
+      "const": "application/vnd.bitcoinpir.proof-bundle.v1+json"
+    },
+    "producers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "commit": { "pattern": "^[0-9a-f]{40}$", "type": "string" },
+          "repository": { "pattern": "^https://github\\.com/Bitcoin-PIR/[A-Za-z0-9._-]+$", "type": "string" },
+          "sourcePath": {
+            "description": "Normalized traversal-free path relative to the producer repository root.",
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": ["repository", "commit"],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schemaVersion": { "const": 1 },
+    "subject": {
+      "additionalProperties": false,
+      "properties": {
+        "identifiers": { "minProperties": 1, "type": "object" },
+        "kind": { "pattern": "^[a-z0-9][a-z0-9._-]*$", "type": "string" },
+        "network": { "minLength": 1, "type": "string" }
+      },
+      "required": ["kind", "network", "identifiers"],
+      "type": "object"
+    },
+    "verificationProfiles": {
+      "items": { "pattern": "^[a-z0-9][a-z0-9._/-]*$", "type": "string" },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "mediaType",
+    "bundleId",
+    "createdAt",
+    "subject",
+    "producers",
+    "claims",
+    "artifacts",
+    "dependencies",
+    "verificationProfiles"
+  ],
+  "title": "Bitcoin-PIR proof bundle manifest v1",
+  "type": "object"
+}
