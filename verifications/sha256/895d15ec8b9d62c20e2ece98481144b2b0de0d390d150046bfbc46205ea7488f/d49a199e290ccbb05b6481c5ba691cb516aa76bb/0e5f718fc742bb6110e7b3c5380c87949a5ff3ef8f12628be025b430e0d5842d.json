@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mediaType": "application/vnd.bitcoinpir.verification-record.v1+json",
+  "createdAt": "2026-07-24T14:01:30Z",
+  "bundleManifestSha256": "895d15ec8b9d62c20e2ece98481144b2b0de0d390d150046bfbc46205ea7488f",
+  "verificationProfile": "bitcoinpir/database-proof-v2/reattest-existing",
+  "verifier": {
+    "repository": "https://github.com/Bitcoin-PIR/attested-builder",
+    "commit": "d49a199e290ccbb05b6481c5ba691cb516aa76bb",
+    "tool": "pir-attested-builder verify-build-evidence",
+    "toolSha256": "9a8ed087487de16757865470a2ffbceff02ab5dac69cd54fcf4dd49fc2a8d092"
+  },
+  "checks": [
+    {
+      "id": "db-proof-v2/all-artifacts-manifest-binding",
+      "required": true,
+      "outcome": "pass",
+      "exitCode": 0,
+      "evidenceSha256": "41cb2a37e52892a1ba3fd4361e8a94dd747ef026cc00b68863b3d6dc576467a3"
+    },
+    {
+      "id": "db-proof-v2/database-manifest-binding",
+      "required": true,
+      "outcome": "pass",
+      "exitCode": 0,
+      "evidenceSha256": "6a074a8b25f140b140e94b6eb3e1cc738f298eb7ee66aa77178f398f2f9fda6f"
+    },
+    {
+      "id": "db-proof-v2/evidence-decode",
+      "required": true,
+      "outcome": "pass",
+      "exitCode": 0,
+      "evidenceSha256": "e9795887805769525d484824d85d8b3fcda008340c1b2332de7b46a59f055517"
+    },
+    {
+      "id": "db-proof-v2/report-data-binding",
+      "required": true,
+      "outcome": "pass",
+      "exitCode": 0,
+      "evidenceSha256": "da5fcbb86a7a01613e6bc4a6886a0cfd056b68e0e9df29067cb7e275026d56d1"
+    },
+    {
+      "id": "db-proof-v2/root-payload-binding",
+      "required": true,
+      "outcome": "pass",
+      "exitCode": 0,
+      "evidenceSha256": "e963e8be3127f4a734490d0e96a18dee649101a4e9a70fc96e34a13b01f94b29"
+    },
+    {
+      "id": "db-proof-v2/server-db-manifest-binding",
+      "required": true,
+      "outcome": "pass",
+      "exitCode": 0,
+      "evidenceSha256": "0f5d943de226fc1b47ba22bc6dd99065e7435c76c9c0dd9564aa98e3280492ec"
+    }
+  ],
+  "overallOutcome": "pass"
+}

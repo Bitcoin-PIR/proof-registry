@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "mediaType": "application/vnd.bitcoinpir.proof-bundle.v1+json",
+  "bundleId": "database-proof-v2/mainnet/delta-940611-948454",
+  "createdAt": "2026-07-24T11:00:15Z",
+  "subject": {
+    "kind": "database-proof-v2",
+    "network": "bitcoin-mainnet",
+    "identifiers": {
+      "dbId": 1,
+      "buildKind": "delta",
+      "fromHeight": 940611,
+      "height": 948454,
+      "fromBlockHash": "000000000000000000002c41243b3d74d135942031ef15f547bca1ce8f85eb99",
+      "blockHash": "00000000000000000001ef683c02c383315db7e917c69d20f79e05985560a4e4"
+    }
+  },
+  "producers": [
+    {
+      "repository": "https://github.com/Bitcoin-PIR/attested-builder",
+      "commit": "d49a199e290ccbb05b6481c5ba691cb516aa76bb",
+      "sourcePath": "builder/src/evidence.rs"
+    }
+  ],
+  "claims": {
+    "evidenceVersion": 2,
+    "evidenceMode": "reattest_existing",
+    "evidenceFileSha256": "59bd47d078458490735ea8707db3c10a3473af034f653f4d51275e5e511c0509",
+    "builderBinarySha256": "1150d6a2d746398d9046e677e1f0d36f4c4ccb3c390265ea8cf14d7c1f23671c",
+    "paramsHashV2": "fe6f516696bafaa2226cc1bdc7888c7c69dd263a84817dd0f18cf8027123c45d",
+    "muhash": "cf4fc1f1dd400622a5b6f39eca7f764a30570c30cc668e04f00e8a3356c2a2ee",
+    "bucketSuperRoot": "e2ba2eee6788424309a95f771893d5401cc8e3ceec6188dc2708900e211a910a",
+    "onionSuperRoot": "f86baa3966a61cdcd70d8c0ad9bed233f591806eb351db2ae35ac0192a3fe997",
+    "onionTotalPackedEntries": 116030,
+    "onionIndexBinsPerTable": 965,
+    "onionChunkBinsPerTable": 4792,
+    "rootBundlePayloadSha256": "fac8d1fed68413c3645cf169471a116c41476a3dc9bc024653a12ae1cc731ea9",
+    "predecessorEvidenceSha256": "977abca3ca8dc5dfce06d69006feeb6c0df5e7df3d7c1d758fc717254ff10697",
+    "predecessorReportSha256": "4c27672968a1faf0a77d3554393dfd1faa9bd84702e625817a037ef7b1d30df6"
+  },
+  "artifacts": [
+    {
+      "path": "artifacts/SHA256SUMS",
+      "sha256": "b94c262c5a24e59c4f31c087f1c29bddee7b62521ee27bf39e163b9c40ca3954",
+      "size": 848,
+      "mediaType": "text/plain",
+      "role": "producer-checksums"
+    },
+    {
+      "path": "artifacts/all-artifacts.manifest.sha256",
+      "sha256": "1941ea76988775932657409b338c524e18722296fd8dc77df9d32728d17aeffd",
+      "size": 607,
+      "mediaType": "text/plain",
+      "role": "all-artifacts-manifest"
+    },
+    {
+      "path": "artifacts/attest-existing-layout.txt",
+      "sha256": "3783429ee377c88681e448217df26a23b48a4c58534ca153e80a95d7eac7d3c3",
+      "size": 2273,
+      "mediaType": "text/plain",
+      "role": "producer-run-metadata"
+    },
+    {
+      "path": "artifacts/build-evidence.bin",
+      "sha256": "59bd47d078458490735ea8707db3c10a3473af034f653f4d51275e5e511c0509",
+      "size": 586,
+      "mediaType": "application/octet-stream",
+      "role": "build-evidence-v2"
+    },
+    {
+      "path": "artifacts/build-evidence.report-data",
+      "sha256": "1e433a077d8d2978fb0c2ebc194cfd7bd97a6bdea64cf48aa5e121364157f1c4",
+      "size": 64,
+      "mediaType": "application/octet-stream",
+      "role": "report-data"
+    },
+    {
+      "path": "artifacts/build-evidence.sev-snp-report.bin",
+      "sha256": "a9fdecbebee5a89931f92ae48418928bd108e2ff2331d7c1463a7357ed2ce567",
+      "size": 1184,
+      "mediaType": "application/octet-stream",
+      "role": "sev-snp-report"
+    },
+    {
+      "path": "artifacts/build-evidence.verify.txt",
+      "sha256": "45ca10eca3df17ad15ea157f9a12f6753a303ea83c9895b09314c78b4e7fc3b2",
+      "size": 2160,
+      "mediaType": "text/plain",
+      "role": "producer-verifier-output"
+    },
+    {
+      "path": "artifacts/database.manifest.sha256",
+      "sha256": "58166fad1aaec56282f6fd2eff6c33550535a0eaba4a9eab9ab12b65e50a83e4",
+      "size": 434,
+      "mediaType": "text/plain",
+      "role": "database-manifest"
+    },
+    {
+      "path": "artifacts/root-bundle-payload.bin",
+      "sha256": "fac8d1fed68413c3645cf169471a116c41476a3dc9bc024653a12ae1cc731ea9",
+      "size": 877,
+      "mediaType": "application/octet-stream",
+      "role": "root-bundle-payload"
+    },
+    {
+      "path": "artifacts/server-db/MANIFEST.toml",
+      "sha256": "8c730b78dfa32e3fb5708f7f7fee16c7f53b1aaacbd3d1b7ba98b3e0d046dcb2",
+      "size": 1036,
+      "mediaType": "application/toml",
+      "role": "server-database-manifest"
+    }
+  ],
+  "dependencies": [],
+  "verificationProfiles": [
+    "bitcoinpir/database-proof-v2/reattest-existing"
+  ]
+}

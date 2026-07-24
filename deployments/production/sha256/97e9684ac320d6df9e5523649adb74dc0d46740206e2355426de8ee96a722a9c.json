@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "mediaType": "application/vnd.bitcoinpir.deployment-record.v1+json",
+  "createdAt": "2026-07-24T12:27:20Z",
+  "environment": "production",
+  "deployment": {
+    "kind": "dual-serving",
+    "identifier": "pir1-pir2-db0-v2-20260724"
+  },
+  "bundleManifestSha256": "895d15ec8b9d62c20e2ece98481144b2b0de0d390d150046bfbc46205ea7488f",
+  "verificationRecordSha256": "0e5f718fc742bb6110e7b3c5380c87949a5ff3ef8f12628be025b430e0d5842d",
+  "consumer": {
+    "repository": "https://github.com/Bitcoin-PIR/Bitcoin-PIR",
+    "commit": "81dd96d442d39200fee7e6c97f5c308f38126756"
+  },
+  "runtimePins": [
+    {
+      "name": "pir2-ovmf-sha256",
+      "sha256": "e4ac90be71f3b455922ebc7106c5630536bf67027de585e34319b0a42fcd716e"
+    },
+    {
+      "name": "pir2-uki-sha256",
+      "sha256": "34b04d1bfc0501c0cc222aff446a55de0a74d4e5218a21a05bf8756f8293b681"
+    },
+    {
+      "name": "unified-server-binary-sha256",
+      "sha256": "cc4ec24b9ecf54c962d20843a374a8235d9b71954adf05bdb4d6bb3155e16b1e"
+    }
+  ]
+}

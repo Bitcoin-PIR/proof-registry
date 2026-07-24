@@ -1,0 +1,9 @@
+1941ea76988775932657409b338c524e18722296fd8dc77df9d32728d17aeffd  ./all-artifacts.manifest.sha256
+3783429ee377c88681e448217df26a23b48a4c58534ca153e80a95d7eac7d3c3  ./attest-existing-layout.txt
+59bd47d078458490735ea8707db3c10a3473af034f653f4d51275e5e511c0509  ./build-evidence.bin
+1e433a077d8d2978fb0c2ebc194cfd7bd97a6bdea64cf48aa5e121364157f1c4  ./build-evidence.report-data
+a9fdecbebee5a89931f92ae48418928bd108e2ff2331d7c1463a7357ed2ce567  ./build-evidence.sev-snp-report.bin
+45ca10eca3df17ad15ea157f9a12f6753a303ea83c9895b09314c78b4e7fc3b2  ./build-evidence.verify.txt
+58166fad1aaec56282f6fd2eff6c33550535a0eaba4a9eab9ab12b65e50a83e4  ./database.manifest.sha256
+fac8d1fed68413c3645cf169471a116c41476a3dc9bc024653a12ae1cc731ea9  ./root-bundle-payload.bin
+8c730b78dfa32e3fb5708f7f7fee16c7f53b1aaacbd3d1b7ba98b3e0d046dcb2  ./server-db/MANIFEST.toml
